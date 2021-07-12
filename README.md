@@ -1,9 +1,13 @@
 Projeto para estudos com base em :
 
+Implementação:
+
 - Consumo de uma API;
 - Uso da Arquitetura MVVM;
 - Transição de telas (uso de navigation);
 - Uso de Fragments e Activity.
+
+Detalhes:
 
 - Durante a aplicação, será consumida uma API a qual será mostrada em uma lista e caso houver clique, levará para uma lista de detalhes;
 - Base será uma arquitetura MVVM;
