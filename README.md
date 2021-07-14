@@ -2,7 +2,7 @@ Projeto para estudos com base em :
 
 Implementação:
 
-- Consumo de uma API;
+- Consumo de uma API - https://www.freetogame.com/api-doc 
 - Uso da Arquitetura MVVM;
 - Transição de telas (uso de navigation);
 - Uso de Fragments e Activity.
