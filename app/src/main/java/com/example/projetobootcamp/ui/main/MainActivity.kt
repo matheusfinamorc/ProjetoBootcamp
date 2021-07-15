@@ -1,7 +1,8 @@
-package com.example.projetobootcamp
+package com.example.projetobootcamp.ui.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.projetobootcamp.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
