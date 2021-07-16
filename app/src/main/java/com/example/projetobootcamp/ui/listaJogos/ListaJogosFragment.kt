@@ -5,7 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.LinearLayout
+import android.widget.LinearLayout.VERTICAL
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -24,15 +24,9 @@ class ListaJogosFragment() : Fragment() {
         }
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        configuraRecyclerView()
-        configuraLista()
-    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-         getJogos()
+        getJogos()
     }
 
     override fun onCreateView(
@@ -45,6 +39,12 @@ class ListaJogosFragment() : Fragment() {
             container,
             false
         )
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        configuraRecyclerView()
+          configuraLista()
     }
 
 
@@ -69,7 +69,7 @@ class ListaJogosFragment() : Fragment() {
     }
 
     private fun configuraRecyclerView() {
-        val divisor = DividerItemDecoration(context, LinearLayout.VERTICAL)
+        val divisor = DividerItemDecoration(context, VERTICAL)
         lista_jogos_recyclerView.addItemDecoration(divisor)
         lista_jogos_recyclerView.adapter = adapter
     }

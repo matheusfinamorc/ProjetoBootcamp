@@ -1,6 +1,5 @@
 package com.example.projetobootcamp.model
 
-import androidx.room.Entity
 import java.io.Serializable
 
 

@@ -18,7 +18,7 @@ class ListaJogosAdapter(
         viewType: Int
     ): ListaJogosAdapter.ViewHolder {
         val viewCriada = LayoutInflater.from(context).inflate(
-            R.layout.lista_jogos,
+            R.layout.item_jogo,
             parent,
             false
         )
@@ -39,6 +39,7 @@ class ListaJogosAdapter(
 
     inner class ViewHolder(itemView: View) :
         RecyclerView.ViewHolder(itemView) {
+
         private lateinit var jogo: JogoItem
         private val campoNome by lazy { itemView.item_nome_jogo }
         private val campoGenero by lazy { itemView.item_genero_jogo }
