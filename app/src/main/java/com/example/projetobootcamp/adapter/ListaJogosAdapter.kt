@@ -11,7 +11,8 @@ import kotlinx.android.synthetic.main.item_jogo.view.*
 
 class ListaJogosAdapter(
     private val context: Context,
-    private var jogos: MutableList<JogoItem> = mutableListOf()
+    private var jogos: MutableList<JogoItem> = mutableListOf(),
+    var onItemClickListener: (jogo: JogoItem) -> Unit = {}
 ) : RecyclerView.Adapter<ListaJogosAdapter.ViewHolder>() {
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -43,6 +44,14 @@ class ListaJogosAdapter(
         private lateinit var jogo: JogoItem
         private val campoNome by lazy { itemView.item_nome_jogo }
         private val campoGenero by lazy { itemView.item_genero_jogo }
+
+        init {
+            itemView.setOnClickListener {
+                if (::jogo.isInitialized){
+                    onItemClickListener(jogo)
+                }
+            }
+        }
 
         fun vincula(jogoItem: JogoItem) {
             this.jogo = jogoItem

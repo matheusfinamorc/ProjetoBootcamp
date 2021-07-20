@@ -4,12 +4,12 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.projetobootcamp.model.JogoItem
-import com.example.projetobootcamp.repository.ListaRepository
+import com.example.projetobootcamp.repository.MainRepository
 import kotlinx.coroutines.launch
 import retrofit2.Response
 
 class ListaJogosViewModel(
-    private val repository: ListaRepository
+    private val repository: MainRepository
     ): ViewModel() {
     val mResponse: MutableLiveData<Response<MutableList<JogoItem>>> = MutableLiveData()
 

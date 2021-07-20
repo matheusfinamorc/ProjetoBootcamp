@@ -7,10 +7,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout.VERTICAL
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.projetobootcamp.R
 import com.example.projetobootcamp.adapter.ListaJogosAdapter
+import com.example.projetobootcamp.model.JogoItem
 import kotlinx.android.synthetic.main.lista_jogos.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -22,6 +24,9 @@ class ListaJogosFragment() : Fragment() {
         context?.let {
             ListaJogosAdapter(context = it)
         }
+    }
+    private val controlador by lazy {
+        findNavController()
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -44,7 +49,7 @@ class ListaJogosFragment() : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         configuraRecyclerView()
-          configuraLista()
+        configuraLista()
     }
 
 
@@ -54,7 +59,6 @@ class ListaJogosFragment() : Fragment() {
             if (resposta.isSuccessful) {
                 resposta.body()?.let { jogos ->
                     adapter?.add(jogos)
-                    Log.i("Response", jogos[1].title)
                 }
             } else {
                 Log.i("Response", resposta.errorBody().toString())
@@ -63,8 +67,19 @@ class ListaJogosFragment() : Fragment() {
     }
 
     private fun configuraLista() {
+        adapter?.onItemClickListener = {
+            goToDetalhes(it)
+        }
+
         lista_jogos_recyclerView.adapter = adapter
         lista_jogos_recyclerView.layoutManager = LinearLayoutManager(context)
+
+    }
+
+    private fun goToDetalhes(jogo: JogoItem) {
+        val direcao = ListaJogosFragmentDirections
+            .actionListaJogosToDetalhesJogo(jogo)
+        controlador.navigate(direcao)
 
     }
 
