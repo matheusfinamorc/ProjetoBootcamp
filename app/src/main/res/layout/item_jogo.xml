@@ -26,7 +26,7 @@
 
             <TextView
                 android:id="@+id/item_nome_jogo"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
                 android:ellipsize="end"
@@ -55,7 +55,7 @@
 
             <View
                 android:layout_width="0dp"
-                android:layout_height="3dp"
+                android:layout_height="6dp"
                 android:background="@color/jogoDivisor"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintEnd_toStartOf="parent"
